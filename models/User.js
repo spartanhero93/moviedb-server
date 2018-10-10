@@ -9,7 +9,7 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
-  },
+  }
 })
 
-mongoose.model('user', UserSchema)
+mongoose.model('User', UserSchema)
