@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
 /* Routes */
-app.use('/', require('./routes'))
+app.use('/', require('./routes/posts'))
 
 app.use((err, req, res, next) => {
   res.status(422).send({ error: err.message })
