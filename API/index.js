@@ -1,20 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const axios = require('axios');
-
-const URL = '';
+const express = require('express')
+const router = express.Router()
+const callMovieAPI = require('../service/movidbapi')
 
 /** Search the MovieDB api based on client request type */
-router.get('/movies/:name', async (req, res) => {
-	try {
-		const response = await axios.get(
-			`https://api.themoviedb.org/3/movie/${req.params.name}?api_key=${process.env.API_KEY}&language=en-US&page=1`
-		);
-		const { data } = await response;
-		res.send({ data });
-	} catch (error) {
-		console.log(error);
-	}
-});
+router.get('/movies/:name/:pageNum', async (req, res) => {
+  try {
+    const data = await callMovieAPI(req.params.name, req.params.pageNum)
+    await res.send({ data })
+  } catch (error) {
+    console.log(error)
+  }
+})
 
-module.exports = router;
+module.exports = router
