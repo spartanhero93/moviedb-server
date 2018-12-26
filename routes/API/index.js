@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const callMovieAPI = require('../service/movidbapi')
-const callTVShowsAPI = require('../service/tvShowsAPI')
-const querySearch = require('../service/querySearch')
+const callMovieAPI = require('../../service/movidbapi')
+const callTVShowsAPI = require('../../service/tvShowsAPI')
+const querySearch = require('../../service/querySearch')
 
 /** Search the MovieDB api based on client request type */
 router.get('/movies/:name/:pageNum', async (req, res) => {
