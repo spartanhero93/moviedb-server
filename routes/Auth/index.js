@@ -2,10 +2,11 @@ const express = require('express')
 const router = express.Router()
 const createNewGuestSession = require('../../service/sessions')
 
-router.get('/new_guest_session', async (req, res) => {
+router.get('/key', async (req, res) => {
   try {
-    const data = await createNewGuestSession()
-    res.send(data)
+    res.send({ key: process.env.API_KEY })
+    // const data = await createNewGuestSession()
+    // res.send(data)
   } catch (error) {
     res.send(error)
   }
