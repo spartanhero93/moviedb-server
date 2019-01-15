@@ -11,7 +11,7 @@ const callDetailedResults = async (mediaType = 'person', id) => {
         process.env.API_KEY
       }&language=en-US`
     )
-    return await data
+    return await { data, mediaType }
   } catch (error) {
     console.log(error)
   }
