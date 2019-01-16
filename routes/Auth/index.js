@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const createNewGuestSession = require('../../service/sessions')
+const getToken = require('../../service/signUpWithTMDB')
 
-router.get('/key', async (req, res) => {
+router.get('/get_token', async (req, res) => {
   try {
-    res.send({ key: process.env.API_KEY })
-    // const data = await createNewGuestSession()
-    // res.send(data)
+    const data = await getToken()
+    res.send({ data })
   } catch (error) {
-    res.send(error)
+    console.log(error)
   }
 })
 module.exports = router
