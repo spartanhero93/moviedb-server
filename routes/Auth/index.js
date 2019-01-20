@@ -13,9 +13,8 @@ router.get('/get_token', async (req, res) => {
 })
 router.get('/create_session/:token', async (req, res) => {
   try {
-    console.log(req.params.token)
-    // const data = await createSession(req.params.token)
-    // res.send(data)
+    const data = await createSession(req.params.token)
+    res.send(data)
   } catch (error) {
     console.log(error)
   }
