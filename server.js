@@ -4,10 +4,8 @@ const app = express()
 const cors = require('cors')
 require('dotenv').config()
 
-mongoose.connect(
-  process.env.MONGO_URI,
-  { useNewUrlParser: true },
-  () => console.log('Mongoose is connected')
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, () =>
+  console.log('Mongoose is connected')
 )
 mongoose.Promise = global.Promise
 
@@ -23,6 +21,6 @@ app.use((err, req, res, next) => {
   res.status(422).send({ error: err.message })
 })
 
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
