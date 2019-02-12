@@ -38,5 +38,9 @@ router.get('/search/:query/:pageNum', async (req, res) => {
     console.log(error)
   }
 })
+router.get('/account/details/:id', async (req, res) => {
+  try {
+  } catch (error) {}
+})
 
 module.exports = router
