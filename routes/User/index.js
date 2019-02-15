@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const getToken = require('../../service/signUpWithTMDB')
-const createSession = require('../../service/createSession')
-const removeSession = require('../../service/removeSession')
+const getToken = require('../../service/userData/signUpWithTMDB')
+const createSession = require('../../service/userData/createSession')
+const removeSession = require('../../service/userData/removeSession')
+const rateItem = require('../../service/userData/rateItem')
 
 router.get('/get_token', async (req, res) => {
   try {
@@ -28,6 +29,12 @@ router.get('/remove_session/:session', async (req, res) => {
   } catch (error) {
     console.error(error)
   }
+})
+router.post('/rateItem/:mediaType/:id/:rating/:sessionId', async (req, res) => {
+  try {
+    const { mediaType, id, rating, sessionId } = req.params
+    const data = await rateItem(mediaType, id, rating, sessionId)
+  } catch (error) {}
 })
 
 module.exports = router

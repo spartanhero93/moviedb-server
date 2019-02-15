@@ -15,12 +15,12 @@ app.use(cors())
 
 /* Routes */
 app.use('/api', require('./routes/API'))
-app.use('/auth', require('./routes/Auth'))
+app.use('/user', require('./routes/User'))
 
 app.use((err, req, res, next) => {
   res.status(422).send({ error: err.message })
 })
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
