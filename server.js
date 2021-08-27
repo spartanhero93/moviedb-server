@@ -4,10 +4,10 @@ const app = express()
 const cors = require('cors')
 require('dotenv').config()
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, () =>
-  console.log('Mongoose is connected')
-)
-mongoose.Promise = global.Promise
+// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, () =>
+//   console.log('Mongoose is connected')
+// )
+// mongoose.Promise = global.Promise
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
