@@ -7,9 +7,10 @@ const callDetailedResults = async (mediaType = 'person', id) => {
     }
 
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${
-        process.env.API_KEY
-      }&language=en-US`
+      `https://api.themoviedb.org/3/${mediaType}/${id}&language=en-US`,
+      { headers: {
+        Authorization: `Bearer ${process.env.API_KEY}` 
+      }}
     )
     return await { data, mediaType }
   } catch (error) {
